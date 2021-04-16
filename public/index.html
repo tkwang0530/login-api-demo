@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.1.js"></script>
+    <meta charset="UTF-8">
+    <title>Login Redirect API Test</title>
+  </head>
+  <body>
+    <h1>This is home page</h1>
+    <!-- Script -->
+    <script type="text/javascript">
+      $.ajax({
+        url: 'https://design.test/api/weba/v3/signin/chailease',
+        type: 'GET',
+        beforeSend: function (xhr) {
+          xhr.setRequestHeader('x-email', 'tommy@ryzo.io')
+          xhr.setRequestHeader('x-nickname', 'tommy1')
+        },
+        success: function (response) {
+          if (response.err) {
+            alert(response.msg)
+          } else {
+            window.location.replace('https://design.test/client/dashboard/site')
+          }
+        }
+      })
+    </script>
+  </body>
+</html>
