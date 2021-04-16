@@ -12,6 +12,10 @@
       $.ajax({
         url: 'https://design.test/api/weba/v3/signin/chailease',
         type: 'GET',
+        crossDomain: true,
+        xhrFields: {
+          withCredentials: true
+        },
         beforeSend: function (xhr) {
           xhr.setRequestHeader('x-email', 'tommy@ryzo.io')
           xhr.setRequestHeader('x-nickname', 'tommy1')
